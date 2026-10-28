@@ -1,0 +1,38 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "claude-opus-4-6",
+  "model_note": "opus for complex analysis - 需求分析需要深度理解和推理",
+  "command": "/pm-req-analysis",
+  "description": "需求分析",
+  "timeout": 3600,
+  "expected_outputs": [
+    "{req_short}-需求分析-v*.md"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{knowledge_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [
+    "URL 处理指令：如果需求描述中包含 TAPD 链接（tapd.cn），请使用 /tool-tapd 获取对应内容；如果包含其他 URL，请尝试使用 WebFetch 获取。获取到的内容作为需求分析的输入。"
+  ],
+  "recommended_next": [
+    {
+      "skill": "pm-baseline-gen",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase0_status": {
+      "desc": "Phase 0 已有产物是否重跑",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "phase3_questions": {
+      "desc": "Phase 3 问题清单等待用户回答",
+      "level": "blocking",
+      "mode": "auto_pass"
+    }
+  }
+}

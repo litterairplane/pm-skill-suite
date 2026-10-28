@@ -1,0 +1,48 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "claude-opus-4-6",
+  "model_note": "opus for complex analysis - PRD 更新需要理解变更影响并做精确文档修改",
+  "command": "/pm-prd-update",
+  "description": "PRD 更新",
+  "timeout": 3600,
+  "expected_outputs": [
+    "需求文档/{req_short}-需求文档-v*.md"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{knowledge_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [
+    "URL 处理指令：如果需求描述中包含 TAPD 链接（tapd.cn），请使用 /tool-tapd 获取对应内容；如果包含其他 URL，请尝试使用 WebFetch 获取。获取到的内容作为需求分析的输入。"
+  ],
+  "recommended_next": [],
+  "confirmations": {
+    "phase1_change_summary": {
+      "desc": "Phase 1 变更理解摘要确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    },
+    "phase1_detail_confirm": {
+      "desc": "Phase 1 细节确认",
+      "level": "blocking",
+      "mode": "user"
+    },
+    "phase1_optimization": {
+      "desc": "Phase 1 优化建议确认",
+      "level": "blocking",
+      "mode": "user"
+    },
+    "phase2_update_plan": {
+      "desc": "Phase 2 Baseline 更新计划确认",
+      "level": "blocking",
+      "mode": "user"
+    },
+    "phase3_change_content": {
+      "desc": "Phase 3 变更内容批量确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    }
+  }
+}

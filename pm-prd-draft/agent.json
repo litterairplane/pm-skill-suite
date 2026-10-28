@@ -1,0 +1,36 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "claude-opus-4-6",
+  "model_note": "opus for complex analysis - PRD 撰写需要深度理解需求并做长文档生成",
+  "command": "/pm-prd-draft",
+  "description": "PRD 生成",
+  "timeout": 3600,
+  "expected_outputs": [
+    "需求文档/{req_short}-需求文档-v*.md"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{knowledge_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [
+    {
+      "skill": "pm-prd-review",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase0_status": {
+      "desc": "Phase 0 状态检查",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "phase2_chapter_confirm": {
+      "desc": "Phase 2 章节确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    }
+  }
+}

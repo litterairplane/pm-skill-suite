@@ -1,0 +1,28 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "glm-5.1",
+  "model_note": "sonnet for structured tasks - 原型评审主要是对照检查，不需要深度推理",
+  "command": "/pm-proto-review",
+  "description": "原型评审",
+  "timeout": 600,
+  "expected_outputs": [],
+  "add_dirs": [
+    "{req_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [
+    {
+      "skill": "pm-prd-draft",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase2_review_opinions": {
+      "desc": "Phase 2 评审意见确认",
+      "level": "blocking",
+      "mode": "auto_pass"
+    }
+  }
+}

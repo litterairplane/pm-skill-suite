@@ -1,0 +1,27 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "deepseek-v4-pro",
+  "command": "/pm-baseline-mapping",
+  "description": "Baseline 位置映射",
+  "timeout": 600,
+  "expected_outputs": [],
+  "add_dirs": [
+    "{req_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [],
+  "confirmations": {
+    "phase0_file_locate": {
+      "desc": "Phase 0 Baseline 与需求文档定位",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "phase1_mapping_result": {
+      "desc": "Phase 1 位置映射结果确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    }
+  }
+}

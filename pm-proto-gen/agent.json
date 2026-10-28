@@ -1,0 +1,37 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "claude-sonnet-4-6",
+  "model_note": "原型生成主要是按模板生成 HTML，结构化程度高",
+  "command": "/pm-proto-gen",
+  "description": "原型生成",
+  "timeout": 3600,
+  "expected_outputs": [
+    "原型/*.html"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{skill_dir}",
+    "{conventions_dir}",
+    "{knowledge_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [
+    {
+      "skill": "pm-proto-review",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase0_status": {
+      "desc": "Phase 0 状态确认",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "step1_page_list": {
+      "desc": "Step 1 页面列表确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    }
+  }
+}

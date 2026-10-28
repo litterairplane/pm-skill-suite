@@ -1,0 +1,22 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "deepseek-v4-flash",
+  "command": "/pm-workflow",
+  "description": "需求工作流管家",
+  "timeout": 300,
+  "expected_outputs": [],
+  "add_dirs": [
+    "{req_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [],
+  "confirmations": {
+    "phase0_dir_scan": {
+      "desc": "Phase 0 需求目录扫描与产物识别",
+      "level": "auto",
+      "mode": "auto_pass"
+    }
+  }
+}

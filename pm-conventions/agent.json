@@ -1,0 +1,21 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "deepseek-v4-flash",
+  "command": "/pm-conventions",
+  "description": "PM 共享约定",
+  "timeout": 300,
+  "expected_outputs": [],
+  "add_dirs": [
+    "{req_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [],
+  "confirmations": {
+    "phase0_scope_check": {
+      "desc": "Phase 0 查询范围确认（约定类型识别）",
+      "level": "auto",
+      "mode": "auto_pass"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "glm-5.1",
+  "model_note": "PRD 评审是对照 Baseline 做结构化校验，本模型擅长双向文档比对、规则校验，校验精度高、价格适中",
+  "command": "/pm-prd-review",
+  "description": "PRD 评审",
+  "timeout": 600,
+  "expected_outputs": [],
+  "add_dirs": [
+    "{req_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [
+    {
+      "skill": "pm-operation-guide",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase0_file": {
+      "desc": "Phase 0 文件定位确认",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "phase2_fix_plan": {
+      "desc": "Phase 2 修复方案确认",
+      "level": "blocking",
+      "mode": "user"
+    },
+    "phase3_mapping": {
+      "desc": "Phase 3 位置映射",
+      "level": "auto",
+      "mode": "auto_pass"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "claude-opus-4-6",
+  "model_note": "opus for complex analysis - Baseline 生成需要深度理解需求并做结构化拆解",
+  "command": "/pm-baseline-gen",
+  "description": "Baseline 生成",
+  "timeout": 3600,
+  "expected_outputs": [
+    "{req_short}-Baseline.md"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{knowledge_dir}",
+    "{conventions_dir}"
+  ],
+  "prompt_extras": [
+    "URL 处理指令：如果需求描述中包含 TAPD 链接（tapd.cn），请使用 /tool-tapd 获取对应内容；如果包含其他 URL，请尝试使用 WebFetch 获取。获取到的内容作为需求分析的输入。"
+  ],
+  "recommended_next": [
+    {
+      "skill": "pm-proto-gen",
+      "condition": "has_frontend"
+    },
+    {
+      "skill": "pm-proto-review",
+      "condition": "has_frontend"
+    },
+    {
+      "skill": "pm-prd-draft",
+      "condition": "always"
+    },
+    {
+      "skill": "pm-prd-review",
+      "condition": "always"
+    }
+  ],
+  "confirmations": {
+    "phase0_status": {
+      "desc": "Phase 0 状态检查",
+      "level": "auto",
+      "mode": "auto_pass"
+    },
+    "phase2_round1_composite": {
+      "desc": "Phase 2 第一轮综合确认",
+      "level": "blocking",
+      "mode": "auto_pass"
+    },
+    "phase2_round2_architecture": {
+      "desc": "Phase 2 第二轮功能架构确认",
+      "level": "blocking",
+      "mode": "auto_pass"
+    },
+    "phase2_summary": {
+      "desc": "Phase 2 理解摘要确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    },
+    "phase3_baseline": {
+      "desc": "Phase 3 Baseline 内容确认",
+      "level": "summary",
+      "mode": "auto_pass"
+    }
+  }
+}

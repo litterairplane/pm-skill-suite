@@ -1,0 +1,31 @@
+{
+  "compatible": true,
+  "category": "pm",
+  "model": "deepseek-v4-pro",
+  "model_note": "操作指引是结构化文档输出，不需要深度推理，本模型擅长结构化文档输出，价格适中",
+  "command": "/pm-operation-guide",
+  "description": "操作指引",
+  "timeout": 1200,
+  "expected_outputs": [
+    "操作指引/*.md"
+  ],
+  "add_dirs": [
+    "{req_dir}",
+    "{conventions_dir}",
+    "{knowledge_dir}"
+  ],
+  "prompt_extras": [],
+  "recommended_next": [],
+  "confirmations": {
+    "step0_target_reader": {
+      "desc": "Step 0 标题/目标读者确认",
+      "level": "blocking",
+      "mode": "auto_pass"
+    },
+    "step1_info_gap": {
+      "desc": "Step 1 信息缺口回答",
+      "level": "blocking",
+      "mode": "auto_pass"
+    }
+  }
+}
